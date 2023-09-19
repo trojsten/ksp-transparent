@@ -1,0 +1,25 @@
+people:
+  - name: gardener
+    avatar: https://avatars.githubusercontent.com/u/11409143?v=4
+    candle: gardener
+    color: '#ff0000'
+  - name: Filipko
+    avatar: https://avatars.githubusercontent.com/u/15289967?v=4
+    candle: fs
+    color: 'transparent'
+  - name: Marcel
+    avatar: https://avatars.githubusercontent.com/u/18122517?v=4
+    candle: marcel
+    color: '#0000BA'
+  - name: Kristina
+    avatar: /static/kristina.jpg
+    candle: kristina
+    color: '#00ffff'
+  - name: Emmika
+    avatar: /static/emmika.jpg
+    candle: emmika
+    color: '#f42069'
+  - name: MisQo
+    avatar: /static/misqo.jpeg
+    candle: misqof
+    color: '#ff00ff'

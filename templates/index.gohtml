@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+</head>
+<body class="bg-gray-900 flex h-screen flex-col">
+    <div hx-get="/candle" hx-trigger="load, every 15m" class="overflow-y-hidden h-full" id="js-candle-scroll"></div>
+    <div class="divide-y divide-gray-700 shrink-0 border-t-2 border-white bg-gray-950">
+        <div class="tabular-nums text-white font-bold text-[8rem] py-4 px-8 text-center" id="js-clock">
+            00:00
+        </div>
+    </div>
+
+    <script>
+        setInterval(() => {
+            const t = new Date()
+            document.getElementById("js-clock").innerText = t.getHours() + ":" + (t.getMinutes() < 10 ? "0" : "") + t.getMinutes() + ":" + (t.getSeconds() < 10 ? "0" : "") + t.getSeconds()
+        }, 1000)
+    </script>
+</body>
