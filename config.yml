@@ -23,3 +23,7 @@ people:
     avatar: /static/misqo.jpeg
     candle: misqof
     color: '#ff00ff'
+  - name: Krtko
+    avatar: https://avatars.githubusercontent.com/u/21214184?v=4
+    candle: krtko2
+    color: '#91ff00'
