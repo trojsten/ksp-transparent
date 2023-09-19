@@ -69,7 +69,7 @@ func SetEventWidths(events []Event) []Event {
 		for eventid, event := range events {
 			if !(event.End.Before(t) || event.Start.After(t)) {
 				if event.Offset == -1{
-					for i := 0; i < 100; i++ {
+					for i := 0; i < max; i++ {
 						if pozicie[i] == 0 {
 							pozicie[i] = 1
 							events[eventid].Offset = i
