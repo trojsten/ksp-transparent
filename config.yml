@@ -23,3 +23,19 @@ people:
     avatar: /static/misqo.jpeg
     candle: misqof
     color: '#ff00ff'
+  - name: Janči
+    avatar: https://media.ksp.sk/cache/fe/f7/fef7dd1860d8944e1a1369bdf7c08832.jpg
+    candle: plachy-verejny-23z
+    color: '#04A4F9'
+  - name: Dušan
+    avatar: https://ca.slack-edge.com/T314M4THC-U0488771Z6W-441dde898200-512
+    candle: dusan
+    color: '#2714D2'
+  - name: Adri
+    avatar: https://cdn.discordapp.com/avatars/643874860426199066/6d1bb9bdaea1f869d7069dfac2fa76e0.png
+    candle: brosk
+    color: '#EA9045'
+  - name: Stanko
+    avatar: https://ca.slack-edge.com/T314M4THC-U04605F9ZS6-91e48a11d936-192
+    candle: stanko
+    color: '#14044D'
