@@ -22,7 +22,50 @@ func removeDuplicateValues(intSlice []time.Time) []time.Time {
     return list
 }
 
-func SetEventWidths(events []Event) []Event {
+func SetEventWidths(events []Event) []Event{
+	sort.Slice(events, func(i, j int) bool {
+		if events[i].Start == events[j].Start {
+			return events[i].End.After(events[j].End)
+		}
+		return events[i].Start.Before(events[j].Start)
+	})
+
+	currentIndexes := []int{}
+	currentEnd := time.Time{}
+	for i, event := range events {
+		fmt.Println(event.Start, currentEnd)
+
+		if event.Start.After(currentEnd) || currentEnd.IsZero() {
+			curentEvents := []*Event{}
+
+			for _, index := range currentIndexes {
+				curentEvents = append(curentEvents, &events[index])
+			}
+
+			SetEventWidthsOverlaped(curentEvents)
+			currentIndexes = []int{}
+		}
+
+		if event.End.After(currentEnd) || currentEnd.IsZero() {
+			currentEnd = event.End
+		}
+
+		currentIndexes = append(currentIndexes, i)
+	}
+
+	curentEvents := []*Event{}
+
+	for _, index := range currentIndexes {
+		curentEvents = append(curentEvents, &events[index])
+	}
+
+	SetEventWidthsOverlaped(curentEvents)
+
+	return events
+}
+
+func SetEventWidthsOverlaped(events []*Event) {
+	fmt.Println(events)
 	starts := []time.Time{}
 
 	for i, event := range events {
@@ -36,7 +79,7 @@ func SetEventWidths(events []Event) []Event {
 		return starts[i].Before(starts[j])
 	})
 	var max int = 0
-	prekryvy := make(map[time.Time][]Event)
+	prekryvy := make(map[time.Time][]*Event)
 	for _, t := range starts {
 		for _, event := range events {
 			if !(event.End.Before(t) || event.Start.After(t)) {
@@ -55,7 +98,7 @@ func SetEventWidths(events []Event) []Event {
 
 	for _, t := range starts {
 		pozicie := []int{}
-		for i := 0; i < 100; i++ {
+		for i := 0; i < max; i++ {
 			pozicie = append(pozicie, 0)
 		}
 		for _, event := range events {
@@ -81,6 +124,4 @@ func SetEventWidths(events []Event) []Event {
 		}
 		
 	}
-	
-	return events
 }
