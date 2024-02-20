@@ -4,11 +4,14 @@ import (
 	"crypto/sha1"
 	"encoding/hex"
 	"fmt"
-	"ksp.sk/transparent/config"
-	"ksp.sk/transparent/event"
 	"sort"
 	"strings"
 	"time"
+
+	"log"
+
+	"ksp.sk/transparent/config"
+	"ksp.sk/transparent/event"
 )
 
 func Events(day time.Time) ([]event.Event, error) {
@@ -22,7 +25,8 @@ func Events(day time.Time) ([]event.Event, error) {
 
 		tt, err := Get(person.Candle)
 		if err != nil {
-			return nil, err
+			log.Printf("error while loading timetable %s: %v", person.Name, err)
+			continue
 		}
 
 		for _, lesson := range tt.Lessons {
