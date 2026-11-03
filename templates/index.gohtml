@@ -9,10 +9,12 @@
 </head>
 <body class="bg-gray-900 flex h-screen flex-col">
     <div hx-get="/candle" hx-trigger="load, every 15m" class="overflow-y-hidden h-full" id="js-candle-scroll"></div>
-    <div class="divide-y shrink-0 bg-gray-950">
-        <div class="tabular-nums text-white font-bold text-[6rem] py-2 text-center leading-none" id="js-clock">
+    <div class="flex items-center shrink-0 bg-gray-950">
+        <iframe class="shrink-0 border-0" src="https://imhd.sk/ba/online-zastavkova-tabula?theme=black&I_CONSENT=TO_THE_COOKIES_POLICY_AND_THE_PRIVACY_POLICY&showInfoText=0&nthDisplay=1&st=325&zoom=87" width="425"></iframe>
+        <div class="flex-1 tabular-nums text-white font-bold text-[6rem] py-2 text-center leading-none" id="js-clock">
             00:00:00
         </div>
+        <iframe class="shrink-0 border-0" src="https://imhd.sk/ba/online-zastavkova-tabula?theme=black&I_CONSENT=TO_THE_COOKIES_POLICY_AND_THE_PRIVACY_POLICY&showInfoText=0&nthDisplay=1&st=18&zoom=87" width="425"></iframe>
     </div>
 
     <script>
