@@ -9,8 +9,8 @@
 </head>
 <body class="bg-gray-900 flex h-screen flex-col">
     <div hx-get="/candle" hx-trigger="load, every 15m" class="overflow-y-hidden h-full" id="js-candle-scroll"></div>
-    <div class="divide-y shrink-0 border-t-2 border-gray-400 bg-gray-950">
-        <div class="tabular-nums text-white font-bold text-[6rem] px-8 text-center" id="js-clock">
+    <div class="divide-y shrink-0 bg-gray-950">
+        <div class="tabular-nums text-white font-bold text-[6rem] py-2 text-center leading-none" id="js-clock">
             00:00:00
         </div>
     </div>
