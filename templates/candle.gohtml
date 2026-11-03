@@ -1,7 +1,7 @@
 <div class="flex">
     <div class="relative h-full w-16 text-center text-gray-400">
         {{ range .ticks }}
-            <div class="absolute w-full border-t border-gray-400"
+            <div class="absolute w-full border-t border-t-[thin] border-gray-400"
                  style="top: {{ topForTime . }}px; height: 120px;">{{ timeString . }}</div>
         {{ end }}
 
@@ -10,7 +10,7 @@
     </div>
     <div class="relative h-full w-full">
         {{ range .ticks }}
-            <div class="absolute h-px w-full bg-gray-400" style="top: {{ topForTime . }}px"></div>
+            <div class="absolute w-full border-t border-t-[thin] border-gray-400" style="top: {{ topForTime . }}px;"></div>
         {{ end }}
 
         <div class="absolute z-10 h-[4px] w-full bg-red-600 shadow shadow-red-600/50 js-clockline"
@@ -44,7 +44,7 @@
 
     <div class="relative h-full w-16 text-center text-gray-500">
         {{ range .ticks }}
-            <div class="absolute w-full border-t border-gray-400"
+            <div class="absolute w-full border-t border-t-[thin] border-gray-400"
                  style="top: {{ topForTime . }}px; height: 120px;"></div>
         {{ end }}
 
