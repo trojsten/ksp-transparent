@@ -7,23 +7,23 @@ import (
 )
 
 func removeDuplicateValues(intSlice []time.Time) []time.Time {
-    keys := make(map[time.Time]bool)
-    list := []time.Time{}
- 
-    // If the key(values of the slice) is not equal
-    // to the already present value in new slice (list)
-    // then we append it. else we jump on another element.
-    for _, entry := range intSlice {
-        if _, value := keys[entry]; !value {
-            keys[entry] = true
-            list = append(list, entry)
-        }
-    }
-    return list
+	keys := make(map[time.Time]bool)
+	list := []time.Time{}
+
+	// If the key(values of the slice) is not equal
+	// to the already present value in new slice (list)
+	// then we append it. else we jump on another element.
+	for _, entry := range intSlice {
+		if _, value := keys[entry]; !value {
+			keys[entry] = true
+			list = append(list, entry)
+		}
+	}
+	return list
 }
 
-func SetEventWidths(events []Event) []Event{
-	sort.Slice(events, func(i, j int) bool {
+func SetEventWidths(events []Event) []Event {
+	sort.SliceStable(events, func(i, j int) bool {
 		if events[i].Start == events[j].Start {
 			return events[i].End.After(events[j].End)
 		}
@@ -103,7 +103,7 @@ func SetEventWidthsOverlaped(events []*Event) {
 		}
 		for _, event := range events {
 			if !(event.End.Before(t) || event.Start.After(t)) {
-				if event.Offset != -1{
+				if event.Offset != -1 {
 					pozicie[event.Offset] = 1
 				}
 			}
@@ -111,7 +111,7 @@ func SetEventWidthsOverlaped(events []*Event) {
 
 		for eventid, event := range events {
 			if !(event.End.Before(t) || event.Start.After(t)) {
-				if event.Offset == -1{
+				if event.Offset == -1 {
 					for i := 0; i < max; i++ {
 						if pozicie[i] == 0 {
 							pozicie[i] = 1
@@ -122,6 +122,5 @@ func SetEventWidthsOverlaped(events []*Event) {
 				}
 			}
 		}
-		
 	}
 }

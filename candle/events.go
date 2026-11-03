@@ -42,8 +42,15 @@ func Events(day time.Time) ([]event.Event, error) {
 		}
 	}
 
+	ids := make([]int, 0, len(lessons))
+	for id := range lessons {
+		ids = append(ids, id)
+	}
+	sort.Ints(ids)
+
 	var events []event.Event
-	for _, lesson := range lessons {
+	for _, id := range ids {
+		lesson := lessons[id]
 		h := sha1.New()
 		h.Write([]byte(lesson.Subject))
 		color := hex.EncodeToString(h.Sum(nil))[2 : 6+2]
@@ -57,7 +64,7 @@ func Events(day time.Time) ([]event.Event, error) {
 		})
 	}
 
-	sort.Slice(events, func(i, j int) bool {
+	sort.SliceStable(events, func(i, j int) bool {
 		return events[i].Start.Before(events[j].Start)
 	})
 
